@@ -1,0 +1,15 @@
+{
+    "python.pythonPath": "/Users/alexis.carr/.virtualenvs/project-afjCZMjo/bin/python",
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.banditEnabled": false,
+    "sqltools.connections": [
+        {
+            "database": "${workspaceFolder}/techtrends/database.db",
+            "dialect": "SQLite",
+            "name": "techtrends"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
