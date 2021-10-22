@@ -63,7 +63,7 @@ def health_check():
     response = app.response_class(
         response=json.dumps(
             {
-                "result": "OK — healthy"
+                "result": "OK - healthy"
             }
         ),
         status=200,
@@ -109,6 +109,7 @@ def post(post_id):
     post = get_post(post_id)
     post_title = post['title']
     if post is None:
+        app.logger.info('An attempt was made to access a nonexistent article.')
         return render_template('404.html'), 404
     else:
         app.logger.info(f'Article "{post_title}" retrieved!')
@@ -120,6 +121,7 @@ def about():
     """
     Define the About Us page
     """
+    app.logger.info('About Us page retrieved.')
     return render_template('about.html')
 
 
@@ -140,6 +142,8 @@ def create():
                                (title, content))
             connection.commit()
             connection.close()
+
+            app.logger.info(f'New article "{tile}" created.')
 
             return redirect(url_for('index'))
 
